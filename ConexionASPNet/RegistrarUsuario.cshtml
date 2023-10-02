@@ -1,0 +1,44 @@
+﻿@using ConexionASPNet;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <form method="post">
+            <p>
+                Nombre: <br />
+                <input type="text" name="nombre" required />
+            </p>
+            <p>
+                Email: <br />
+                <input type="email" name="Email" required />
+            </p>
+            <p>
+                Password: <br />
+                <input type="password" name="Password" required />
+            </p>
+            <input type="submit" value="Guardar" />
+        </form>
+        @if (IsPost)
+        {
+
+            if (Global.RegistrarUsuario(Request["nombre"], Request["Email"], Request["Password"]))
+            {
+                <h2>Se guardo un registro</h2>
+            }
+            else
+            {
+                <h2>Error: No se logro guardar</h2>
+            }
+        }
+    </div>
+</body>
+</html>

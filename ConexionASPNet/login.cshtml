@@ -1,0 +1,45 @@
+﻿@using ConexionASPNet;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <form method="post">
+            <p>
+                Email: <br />
+                <input type="email" name="Email" required />
+            </p>
+            <p>
+                Password: <br />
+                <input type="password" name="Password" required />
+            </p>
+            <input type="submit" value="Guardar" />
+        </form>
+        @if (IsPost)
+        {
+
+            if (Global.Login(Request["Email"], Request["Password"]))
+            {
+                <h2>Bienvenido. Estamos redireccionando....</h2>
+                <script language="JavaScript">
+                 
+                    setTimeout("location.href='mostrarUsuarios'", 3000);
+                  
+                </script>
+            }
+            else
+            {
+                <h2>Credenciales no validas. Vuelva a intentar</h2>
+            }
+        }
+    </div>
+</body>
+</html>

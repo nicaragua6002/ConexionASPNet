@@ -1,0 +1,34 @@
+﻿@using ConexionASPNet;
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+            <h1>Lista de Usuarios</h1>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Estado</th>
+                </tr>
+                @foreach (var usuario in Global.ListarUsuarios())
+                {
+            <tr>
+                <td>@usuario.Id</td>
+                <td>@usuario.Nombre</td>
+                <td>@usuario.Email</td>
+                <td>@usuario.Activo</td>
+            </tr>
+                }
+            </table>
+
+    </div>
+</body>
+</html>
